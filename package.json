@@ -1,0 +1,31 @@
+{
+  "name": "@thales/cli",
+  "version": "1.0.0",
+  "description": "Command line interface for build frontend project template",
+  "bin": {
+    "thales": "cli/index.js"
+  },
+  "homepage": "https://git.ops.yunlizhi.cn/frontend-base/thales-cli",
+  "repository": {
+    "type": "git",
+    "url": "https://git.ops.yunlizhi.cn/frontend-base/thales-cli"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "LiuHengZhi",
+  "license": "MIT",
+  "dependencies": {
+    "cac": "^6.7.2",
+    "chalk": "^4.1.0",
+    "enquirer": "^2.3.6",
+    "ora": "^5.3.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.12.1",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1"
+  }
+}
