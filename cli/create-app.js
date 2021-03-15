@@ -4,13 +4,13 @@ const ora = require('ora')
 const chalk = require('chalk')
 const { prompt } = require('enquirer')
 const { copy } = require('../utils/copy')
-const { findAllDir } = require('../utils/other')
+const { findAllDir, emptyDir } = require('../utils/other')
 
 // 当前工作目录
 const cwd = process.cwd()
 
 // 获取所有模板
-const targetDir = path.join(cwd, './template')
+const targetDir = path.join(__dirname, '../template')
 const TEMPLATES = findAllDir(targetDir)
 
 async function createApp (projectName) {
@@ -51,21 +51,6 @@ async function createApp (projectName) {
   const spinner = ora(chalk.cyan('创建模板中......')).start()
   copy(templateDir, targetDir)
   spinner.succeed(chalk.green('模板创建成功！')).stop()
-}
-
-function emptyDir (dir) {
-  if (!fs.existsSync(dir)) {
-    return
-  }
-  for (const file of fs.readdirSync(dir)) {
-    const abs = path.resolve(dir, file)
-    if (fs.lstatSync(abs).isDirectory()) {
-      emptyDir(abs)
-      fs.rmdirSync(abs)
-    } else {
-      fs.unlinkSync(abs)
-    }
-  }
 }
 
 module.exports = {

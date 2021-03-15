@@ -1,6 +1,6 @@
 {
   "name": "@thales/cli",
-  "version": "1.0.0",
+  "version": "0.9.1",
   "description": "Command line interface for build frontend project template",
   "bin": {
     "thales": "cli/index.js"
