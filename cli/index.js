@@ -9,11 +9,7 @@ const cli = cac('dant')
 cli
   .command('create <projectName>')
   .action((projectName) => {
-    try {
-      createApp(projectName)
-    } catch (err) {
-      console.error(err.message)
-    }
+    createApp(projectName)
   })
 
 cli.help()
