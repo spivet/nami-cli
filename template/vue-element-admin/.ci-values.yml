@@ -1,0 +1,52 @@
+service:
+  type: ClusterIP
+  port: 80
+
+configs:
+  enabled: true
+  # config inject type: env, file
+  type: file
+  path: /etc/nginx/conf.d # config mount path when type is file
+  data:
+    default.conf: |
+      server {
+          listen  80;  #负载均衡里的目标群组 配置的后端为8000
+          server_name  localhost;
+        #   if ($host != 'mp.yunlizhi.cn') {
+        #     return 403;
+        #   }
+
+          # access_log  /data/logs/nginx/fe-platform-manage-admin.access.log  main;
+          # access_log  /data/logs/nginx/fe-platform-manage-admin.access.log  customized_ops;
+          # error_log   /data/logs/nginx/fe-platform-manage-admin.error.log;
+          root /opt/dist;
+          index index.html;
+
+          location = /index.html {
+                  add_header Cache-Control "no-store";
+          }
+          location ^~/hope-saas-base-web/ {
+                  proxy_set_header X-real-ip $remote_addr;
+                  proxy_pass http://hope-saas-base-web.hope-saas-project-manager.dev.yunlizhi.net/;
+                #   proxy_pass http://otms-ui.hope-saas-ui.dev.yunlizhi.net/;
+          }
+          
+
+          location /
+          {
+                  expires -1;
+          }
+          location ~ \.(jpg|png|jpeg|gif)$  {
+                  expires 30d;
+                  root /opt/dist/;
+          }
+
+          location ~ \.(js|css)$  {
+                  expires 2h;
+                  root   /opt/dist/;
+          }
+
+          location ^~ /.git {
+                  deny all;
+          }
+      }

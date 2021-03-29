@@ -1,0 +1,12 @@
+include:
+  - project: 'devops/gitlabci-scaffold-pub'
+    file: '/node/common.yml'
+
+variables:
+  COMPILE_COMMAND: "yarn build:dev"
+  QA_COMPILE_COMMAND: "yarn build:qa"
+  PROD_COMPILE_COMMAND: "yarn build:prod"
+  UI_ARTIFACT: dist.tar  #构建工件的目录，项目根目录的相对路径
+  MODULE_NAME: fe-platform-manage-admin
+  QA_MODULE_NAME: qa-fe-platform-manage-admin
+  PROD_MODULE_NAME: prod-fe-platform-manage-admin
