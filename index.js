@@ -2,9 +2,9 @@
 
 const cac = require('cac')
 const chalk = require('chalk')
-const packageJson = require('../package.json')
-const { createApp } = require('./create-app')
-const cli = cac('dant')
+const packageJson = require('./package.json')
+const { createApp } = require('./lib/create-app')
+const cli = cac('thales')
 
 cli
   .command('create <projectName>')
