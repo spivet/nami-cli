@@ -14,6 +14,10 @@ function findAllDir (targetDir) {
   })
 }
 
+/**
+ * 清空指定文件夹
+ * @param {string} targetDir 目标文件夹
+ */
 function emptyDir (targetDir) {
   if (!fs.existsSync(targetDir)) return
 

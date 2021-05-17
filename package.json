@@ -1,6 +1,6 @@
 {
   "name": "@thales/cli",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Command line interface for build frontend project template",
   "bin": {
     "thales": "cli/index.js"
@@ -21,6 +21,7 @@
     "cac": "^6.7.2",
     "chalk": "^4.1.0",
     "commitlint-config-ylz": "^0.1.0",
+    "compressing": "^1.5.1",
     "enquirer": "^2.3.6",
     "husky": "4",
     "lint-staged": "^10.5.4",
